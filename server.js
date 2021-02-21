@@ -27,7 +27,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(helmet({
   contentSecurityPolicy: {
     directives: {
-      "scriptSrc": ["'self'", "code.jquery.com"], //loading of script
+      "scriptSrc": ["'self'", "localhost", "'unsafe-inline'", "code.jquery.com"], //loading of script
+      //self is required
+      //localhost is required (same as self)
+      //loading from jquery for code.jquery.com
+      //unsafe-inline covers JS in script tags
       "styleSrc": ["'self'"] //loading of stylesheet
     }
   }
